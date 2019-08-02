@@ -405,7 +405,6 @@ class Configuration:
         return True
 
 
-
 class ExternalConfiguration(Configuration):
     """A Configuration subclass for external (third-party) packages.
 
