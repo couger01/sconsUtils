@@ -6,6 +6,10 @@ __all__ = ("Configuration", "ExternalConfiguration", "PackageTree", "configure")
 import os.path
 import collections
 import imp
+import re
+import subprocess
+from sys import platform
+
 import SCons.Script
 from . import eupsForScons
 from SCons.Script.SConscript import SConsEnvironment
