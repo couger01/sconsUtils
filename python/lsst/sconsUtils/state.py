@@ -344,8 +344,12 @@ def _configureCommon():
             elif re.search(r"^cc( |$)", env['cc']):
                 CC = env['cc']
                 CXX = re.sub(r"^cc", "c++", CC)
+            elif env['CXX'] != '':
+                CC = env['CC']
+                CXX = env['CXX']
+                log.warn(f"Unrecognized compilers: CC={CC}, CXX={CXX}")
             else:
-                log.fail("Unrecognised compiler:%s" % env['cc'])
+                log.fail(f"Unrecognized compilers: {env['cc']}")
             env0 = SCons.Script.Environment()
             if CC and env['CC'] == env0['CC']:
                 env['CC'] = CC
